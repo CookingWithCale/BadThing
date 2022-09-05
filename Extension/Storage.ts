@@ -10,6 +10,25 @@ export interface LocalStorage {
 
 export type LocalStorageKeys = keyof LocalStorage
 
+export function StoredTriggerWordsSet(trigger_words: string[]): Promise<void> {
+  const vals: LocalStorage = {
+    trigger_words,
+  }
+  return new Promise((resolve) => {
+    chrome.storage.local.set(vals, () => {
+      resolve()
+    })
+  })
+}
+
+export function StoredTriggerWordsGet(): Promise<string[]> {
+  const keys: LocalStorageKeys[] = ["trigger_words"]
+  return new Promise((resolve) => {
+    chrome.storage.local.get(keys, (res: LocalStorage) => {
+      resolve(res.trigger_words ?? [])
+    })
+  })
+}
 
 export function StoredOptionsSet(options: LocalStorageOptions): Promise<void> {
   const vals: LocalStorage = {
