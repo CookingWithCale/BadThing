@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "BadThings",
-  "description": "BadThings browser/Chrome extension replaces Leftist #trigger words with 'bad things'.",
+  "name": "BadThing",
+  "description": "Replaces Leftist #trigger words with 'bad thing' and 'current bad thing'.",
   "version": "0.0.0",
   "icons": {
     "128": "Icon128.png",
@@ -33,7 +33,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["Content.js"]
+      "js": ["contentScript.js"]
     }
   ]
 }

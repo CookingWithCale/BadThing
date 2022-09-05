@@ -6,8 +6,8 @@ import { createRoot } from 'react-dom/client'
 //import 'fontsource-roboto'
 import "./Popup.css"
 import TriggerWordCard from "../TriggerWord"
-import { StoredTriggerWordsSet, StoredTriggerWordsGet, StoredOptionsSet, StoredOptionsGet,
-         LocalStorageOptions } from '../Storage'
+import { StoredTriggerWordsSet, StoredTriggerWordsGet, StoredOptionsSet, 
+         StoredOptionsGet, LocalStorageOptions } from '../Storage'
 
 const App: React.FC<{}> = () => {
   console.log("[Popup.tsx:App]")

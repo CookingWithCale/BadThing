@@ -1,12 +1,26 @@
-import { StoredTriggerWordsSet, StoredTriggerWordsGet, StoredOptionsSet, StoredOptionsGet,
-  LocalStorageOptions } from '../Storage'
+console.log("[Content.ts]")
+import { StoredTriggerWordsGet } from '../Storage'
 
 chrome.runtime.sendMessage('[Content.ts]', (response) => {
   console.log(response)
 })
 
-const ReplaceTriggerWords = () => {
-  
-}
+const text = document.querySelectorAll('h1, h2, h3, h4, h5, p, li, td, captions, span, a')
 
-//document.body.innerHTML = document.body.innerHTML.replace(new RegExp("user1", "g"), "nobody");
+const trigger_word_example: string = "the"
+const trigger_word_replacement_example = 'racist'
+
+StoredTriggerWordsGet().then((trigger_words) => {
+  trigger_words.forEach((trigger_word, index, arr) => {
+    if (trigger_word == undefined) return
+    for(let i=0; i < text.length; i++) {
+      if (text[i].innerHTML.toLowerCase().includes(trigger_word)) {
+        const inner_text = text[i].innerHTML
+        var searchMask = "is";
+        var regEx = new RegExp(searchMask, "ig");
+        var replaceMask = "as";
+        text[i].innerHTML = inner_text.replace(regEx, 'bad thing');
+      }
+    }
+  })
+})

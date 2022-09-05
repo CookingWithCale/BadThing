@@ -1,7 +1,7 @@
 {
   "name": "bad-thing",
   "version": "0.0.0",
-  "description": "A browser/Chrome extension that replaces Leftist #trigger words with 'bad thing'.",
+  "description": "Replaces Leftist #trigger words with 'bad thing' and 'current bad thing'.",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch --progress --config webpack.development.js",

@@ -7,9 +7,11 @@ chrome.runtime.onInstalled.addListener(() => {
     "republican",
     "nazi",
     "fascist",
+    "semi-fascist",
+    "full-fascist",
     "maga",
     "right-wing",
-    "Rightist",
+    "rightist",
     "capitalism",
     "profits",
     "extremist",
@@ -58,6 +60,8 @@ chrome.runtime.onInstalled.addListener(() => {
     "ultra maga",
     "safe and secure elections",
     "voter fraud",
+    "mens rights",
+    "men's rights"
   ])
   StoredOptionsSet({
     foo: 'bar',
@@ -92,5 +96,13 @@ chrome.runtime.onInstalled.addListener((details) => {
         rate: 1,
       })
     }
+  })
+})
+
+chrome.contextMenus.onClicked.addListener((event) => {
+  const trigger_word = event.selectionText
+  StoredTriggerWordsGet().then((trigger_words) => {
+    if (trigger_word == undefined || trigger_word == '') return
+    StoredTriggerWordsSet([...trigger_words, trigger_word])
   })
 })

@@ -62,7 +62,7 @@ module.exports = {
 
 function getHtmlPlugins(chunks) {
   return chunks.map(chunk => new HtmlPlugin({
-    title: 'RSS Commentary',
+    title: 'BadThing',
     filename: `${chunk}.html`,
     chunks: [chunk],
   }))

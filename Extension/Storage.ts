@@ -54,11 +54,3 @@ export function StoredOptionsGet(): Promise<LocalStorageOptions> {
     })
   })
 }
-
-chrome.contextMenus.onClicked.addListener((event) => {
-  const trigger_word = event.selectionText
-  StoredTriggerWordsGet().then((trigger_words) => {
-    if (trigger_word == undefined || trigger_word == '') return
-    StoredTriggerWordsSet([...trigger_words, trigger_word])
-  })
-})
