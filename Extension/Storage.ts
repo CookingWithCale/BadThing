@@ -49,8 +49,16 @@ export function StoredOptionsGet(): Promise<LocalStorageOptions> {
       //            res.options.units_temperature)
       let local_storage_options = resources.options
       if (local_storage_options == undefined)
-        local_storage_options = { foo:''}
+        local_storage_options = { foo:'' }
       resolve(local_storage_options)
     })
   })
 }
+
+chrome.contextMenus.onClicked.addListener((event) => {
+  const trigger_word = event.selectionText
+  StoredTriggerWordsGet().then((trigger_words) => {
+    if (trigger_word == undefined || trigger_word == '') return
+    StoredTriggerWordsSet([...trigger_words, trigger_word])
+  })
+})
