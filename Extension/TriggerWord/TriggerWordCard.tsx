@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
+import { Box, Button, Card, CardActions, CardContent, Typography } 
+  from '@material-ui/core'
 import "./TriggerWordCard.css"
 
 type TriggerWordCardState = "loading" | "error" | "ready"
@@ -9,7 +10,7 @@ const TriggerWordCardContainer: React.FC<{
     on_delete?: () => void
   }> = ({ children, on_delete }) => {
   return (<Card>
-      <Box mx='4px' my='16px'>
+      <Box mx='4px' my='16px' className="TriggerWordCard">
         <CardContent>
           {children}
         </CardContent>
@@ -17,7 +18,7 @@ const TriggerWordCardContainer: React.FC<{
           {
             on_delete && (
               <Button color="secondary" onClick={on_delete}>
-                <Typography className="weatherCard-body">Delete</Typography>
+                <Typography className="TriggerWordCardBody">X</Typography>
               </Button>
             )
           }
@@ -34,7 +35,7 @@ const TriggerWordCard: React.FC<{
 
   return (
     <TriggerWordCardContainer on_delete={on_delete}>
-      <Typography variant="h3">{trigger_word}</Typography>
+      <p>{trigger_word}</p>
     </TriggerWordCardContainer>)
 }
 

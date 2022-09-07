@@ -7,6 +7,8 @@ chrome.runtime.onInstalled.addListener(() => {
     "republican",
     "nazi",
     "fascist",
+    "fascism",
+    "hitler",
     "semi-fascist",
     "full-fascist",
     "maga",

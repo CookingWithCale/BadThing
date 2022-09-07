@@ -17,8 +17,7 @@ StoredTriggerWordsGet().then((trigger_words) => {
       if (text[i].innerHTML.toLowerCase().includes(trigger_word)) {
         const inner_text = text[i].innerHTML
         var searchMask = "is";
-        var regEx = new RegExp(searchMask, "ig");
-        var replaceMask = "as";
+        const regEx = new RegExp(trigger_word, "ig");
         text[i].innerHTML = inner_text.replace(regEx, 'bad thing');
       }
     }
